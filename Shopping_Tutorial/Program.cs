@@ -1,4 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using Shopping_Tutorial.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//Connect db
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectedDb"));
+});
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
