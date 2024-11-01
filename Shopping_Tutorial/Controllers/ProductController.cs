@@ -1,16 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Shopping_Tutorial.Models;
+using Shopping_Tutorial.Repository;
 
 namespace Shopping_Tutorial.Controllers
 {
 	public class ProductController : Controller
     {
-        public IActionResult Index()
+		private readonly DataContext _dataContext;
+		public ProductController(DataContext dataContext)
+		{
+			_dataContext = dataContext;
+		}
+
+		public IActionResult Index()
         {
             return View();
         }
-		public IActionResult Details()
+		public async Task<IActionResult> Details(int Id)
 		{
-			return View();
+
+			if (Id == null) return RedirectToAction("Index");
+
+			var productsById = _dataContext.Products.Where(p => p.Id == Id).FirstOrDefault();
+
+
+			return View(productsById);
 		}
 	}
 }
