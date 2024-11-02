@@ -57,9 +57,6 @@ app.MapControllerRoute(
     pattern: "/brand/{Slug?}",
     defaults: new { controller = "Brand", action = "Index" });
 
-
-
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
