@@ -49,7 +49,7 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "category",
-    pattern: "/category/{Slug?}",  
+    pattern: "/category/{slug?}",  
     defaults : new { controller = "Category", action = "Index" });
 
 app.MapControllerRoute(
