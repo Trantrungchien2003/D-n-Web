@@ -1,8 +1,8 @@
-﻿@model CategoryModel
+﻿@model BrandModel
 @{
-    ViewData["title"] = "Create Category";
+    ViewData["title"] = "Create Brand";
 }
-<h4>Create Category</h4>
+<h4>Create Brand</h4>
 
 <div class="col-md-9">
     <form asp-action="Create" enctype="multipart/form-data">
@@ -21,7 +21,7 @@
 
         <div class="form-group">
             <label>Status</label>
-            <select asp-for="Status" class="form-control" >
+            <select asp-for="Status" class="form-control">
                 <option value="1">Hiển thị</option>
                 <option value="0">Ẩn</option>
             </select>
@@ -32,7 +32,7 @@
             <button class="btn btn-primary">Create</button>
         </div>
     </form>
-    <a asp-action="Index">Back to List Categories</a>
+    <a asp-action="Index">Back to List Brands</a>
 </div>
 @section Scripts {
     @{
