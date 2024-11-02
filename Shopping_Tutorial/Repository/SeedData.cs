@@ -7,7 +7,7 @@ namespace Shopping_Tutorial.Repository
     {
         public static void SeedingData(DataContext _context)
         {
-            _context.Database.Migrate();
+			_context.Database.Migrate();
             if (!_context.Products.Any())
             {
                 CategoryModel macbook = new CategoryModel{ Name = "Macbook", Description = "For rich kids", slug = "macbook", Status = 1 };
