@@ -57,7 +57,7 @@
 							<td><a class="btn btn-danger btn-sm" asp-controller="Cart" asp-action="Clear"> Clear </a></td>
 							@if(User.Identity?.IsAuthenticated ?? false)
 							{
-								<td><a class="btn btn-primary btn-sm" asp-controller="Cart" asp-action="Checkout"> Checkout </a></td>
+								<td><a class="btn btn-primary btn-sm" asp-controller="Checkout" asp-action="Checkout"> Checkout </a></td>
 							}
 						</tr>
 					}

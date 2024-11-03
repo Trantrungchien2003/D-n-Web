@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Shopping_Tutorial.Models;
@@ -9,6 +10,7 @@ using System.Net;
 namespace Shopping_Tutorial.Area.Admin.Controllers
 {
 	[Area("Admin")]
+	[Authorize]
 	public class ProductController : Controller
 	{
 		private readonly DataContext _dataContext;
