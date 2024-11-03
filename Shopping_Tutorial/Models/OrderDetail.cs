@@ -11,6 +11,7 @@ namespace Shopping_Tutorial.Models
 		public decimal Price { get; set; }
 		public int Quantity { get; set; }
 
-
+		[ForeignKey("ProductId")]
+		public ProductModel Product { get; set; }
     }
 }

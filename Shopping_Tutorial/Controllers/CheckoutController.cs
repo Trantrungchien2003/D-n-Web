@@ -38,7 +38,7 @@ namespace Shopping_Tutorial.Controllers
 					orderdetails.ProductId = cart.ProductID;
 					orderdetails.Price = cart.Price;
 					orderdetails.Quantity = cart.Quantity;
-					_dataContext.Add(orderItem);
+					_dataContext.Add(orderdetails);
 					_dataContext.SaveChanges();
 				}
 				HttpContext.Session.Remove("Cart");
