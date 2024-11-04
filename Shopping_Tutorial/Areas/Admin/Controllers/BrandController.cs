@@ -7,7 +7,9 @@ using Shopping_Tutorial.Repository;
 namespace Shopping_Tutorial.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Route("Admin/Brand")]
+    [Authorize/*(Roles ="Admin")*/]
+
     public class BrandController : Controller
     {
         private readonly DataContext _dataContext;
@@ -15,6 +17,7 @@ namespace Shopping_Tutorial.Areas.Admin.Controllers
         {
             _dataContext = context;
         }
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
             return View(await _dataContext.Brands.OrderByDescending(p => p.Id).ToListAsync());

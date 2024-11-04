@@ -24,11 +24,11 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-
+//Khai báo Identity
 builder.Services.AddIdentity<AppUserModel, IdentityRole>()
 	.AddEntityFrameworkStores<DataContext>().AddDefaultTokenProviders();
 
-
+builder.Services.AddRazorPages();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -56,6 +56,7 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
 app.UseStaticFiles();
 
 app.UseRouting();
