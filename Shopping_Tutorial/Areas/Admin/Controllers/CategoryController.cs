@@ -16,15 +16,34 @@ namespace Shopping_Tutorial.Areas.Admin.Controllers
         {
             _dataContext = context;
         }
-        public async Task<IActionResult> Index()
+        [Route("Index")]
+        public async Task<IActionResult> Index(int pg=1)
         {
-            return View(await _dataContext.Categories.OrderByDescending(p => p.Id).ToListAsync());
+            List<CategoryModel> category = _dataContext.Categories.ToList();
+
+            const int pageSize = 10;//10 item /trang
+            if(pg<1)
+            {
+                pg = 1;
+            }    
+            int recsCount = category.Count();
+            
+            var pager = new Paginate(recsCount, pg,pageSize);
+
+            int recSkip = (pg - 1) * pageSize;
+
+            var data = category.Skip(recSkip).Take(pager.PageSize).ToList();
+
+            ViewBag.Pager = pager;
+
+            return View(data);
         }
 
         public IActionResult Create()
         {
             return View();
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
