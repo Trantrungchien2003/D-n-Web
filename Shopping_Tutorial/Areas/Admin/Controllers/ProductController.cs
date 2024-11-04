@@ -10,8 +10,8 @@ using System.Net;
 namespace Shopping_Tutorial.Area.Admin.Controllers
 {
 	[Area("Admin")]
-	[Authorize]
-	public class ProductController : Controller
+    [Authorize]
+    public class ProductController : Controller
 	{
 		private readonly DataContext _dataContext;
 		private readonly IWebHostEnvironment _webHostEnvironment;

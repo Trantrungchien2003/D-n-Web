@@ -7,8 +7,9 @@ using Shopping_Tutorial.Repository;
 namespace Shopping_Tutorial.Areas.Admin.Controllers
 {
     [Area("Admin")]
-	[Authorize]
-	public class CategoryController : Controller
+    [Route("Admin/Category")]
+    [Authorize/*(Roles = "Admin")*/]
+    public class CategoryController : Controller
     {
         private readonly DataContext _dataContext;
 
